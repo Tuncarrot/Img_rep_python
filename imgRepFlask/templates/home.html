@@ -1,0 +1,42 @@
+{% extends "layouts.html" %}
+{% block content %}
+<!--
+    {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <p>By {{ post.author }} on {{ post.date_created }}</p>
+        <p>{{ post.content }}</p>
+    {% endfor %}
+-->
+    <!-- <div class="toggle"></div> Make Switch later -->
+    <h1 data-text="focal&#8226;" class="header-font type-effect">
+        focal&#8226;
+    </h1>
+    <div id="layout-icon">
+        <ul>
+            {% if current_user.is_authenticated %}
+            <li><a href="{{url_for('logout') }}" class="login-colour-bg"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></a></li>
+            {% else %}
+            <li><a href="{{url_for('login') }}" class="login-colour-bg"><i class="fas fa-sign-in-alt"></i></a></li>
+            {% endif %}
+            <li><a href="{{url_for('account_home') }}" class="account-colour-bg"><i class="fas fa-user-circle"></i></a></li>
+            <li><a href="{{url_for('browse_page') }}" class="nutrition-colour-bg"><i class="fas fa-image"></i></a></li>
+            <li><a href="#" class="workout-colour-bg"><i class="fas fa-upload"></i></a></li>
+            <li><a href="#" onclick="switchLayout()" class="budget-colour-bg"><i class="fas fa-question"></i></a></li>
+        </ul>
+    </div>
+    <div id="layout-paragraph"> 
+        <h2 class="content-font">
+        {% if current_user.is_authenticated %}
+        You are signed in, <a href=" {{url_for('logout') }}" class="keyword login-colour">Sign Out</a> here.<br>
+        {% else %}
+        Welcome, to start,<a href=" {{url_for('register') }}" class="keyword login-colour">Create An Account</a> and <a href=" {{url_for('login') }}" class="keyword login-colour">Sign In</a> here.<br>
+        {% endif %}
+        Feel free to manage your <a href=" {{url_for('account_home') }}" class="keyword account-colour">account</a> to change your information.<br>
+        You can browse your <a href="#" class="keyword nutrition-colour">photos</a> and share them.<br>
+        You can <a href="#" class="keyword workout-colour">upload</a> any photos and store them here as well.<br>
+        When you are familiar with the different features, dont be shy to<a href="#" onclick="switchLayout()" class="keyword budget-colour">return</a>.<br>
+        </h2>
+    </div>
+
+
+{% endblock content %}

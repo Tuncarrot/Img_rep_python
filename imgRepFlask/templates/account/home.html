@@ -1,0 +1,55 @@
+{% extends "layouts.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-auto mb-3">
+            <div class="card card-form-profile-pic h-100 account-colour-bg" style="width: 18rem; ">
+                <div class="card-body">
+                    <div class="media">
+                        <img class="rounded-circle profile-pic" src="{{ image_file }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto mb-3">
+            <div class="card card-form-format-account h-100 nutrition-colour-bg" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="account-heading">Welcome {{ current_user.name }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto mb-3">
+            <div class="card card-form-format-account h-100 workout-colour-bg" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="account-heading">Welcome {{ current_user.name }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto mb-3">
+            <div class="card card-form-format-account h-100 account-colour-bg" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="account-heading">Welcome {{ current_user.name }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto mb-3">
+            <div class="card card-form-format-account h-100 budget-colour-bg" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="account-heading">Welcome {{ current_user.name }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto mb-3">
+            <div class="card card-form-format-account h-100 account-colour-bg" style="width: 18rem;">
+                <div class="card-body">
+                    <a href=" {{url_for('account_updateInfo') }}" class="login-colour">Update User Info Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

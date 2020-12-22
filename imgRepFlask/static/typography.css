@@ -1,0 +1,46 @@
+.header-font
+{
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+}
+.content-font
+{
+    font-family: 'DM Sans', sans-serif; 
+}
+.keyword
+{
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    padding: 0.3em;
+    border-radius: 40px;
+}
+.keyword:hover:nth-child(1) {
+    background-color: var(--color-1);
+    color: var(--color-6);
+    text-decoration: none;  /* This is really annoying but it wont work any other way */
+}
+.keyword:hover:nth-child(2) {
+    background-color: var(--color-1);
+    color: var(--color-6);
+    text-decoration: none;
+}
+.keyword:hover:nth-child(4) {
+    background-color: var(--color-2);
+    color: var(--color-6);
+    text-decoration: none;
+}
+.keyword:hover:nth-child(6) {
+    background-color: var(--color-3);
+    color: var(--color-6);
+    text-decoration: none;
+}
+.keyword:hover:nth-child(8) {
+    background-color: var(--color-4);
+    color: var(--color-6);
+    text-decoration: none;
+}
+.keyword:hover:nth-child(10) {
+    background-color: var(--color-5);
+    color: var(--color-6);
+    text-decoration: none;
+}

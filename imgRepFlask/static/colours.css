@@ -1,0 +1,60 @@
+:root
+{
+    --color-1: #1e102a;
+    --color-2: #d70000;
+    --color-3: #fb3000;
+    --color-4: #ff8f00;
+    --color-5: #00806a;
+
+    --color-6: #f8f8ff;
+}
+
+#site-bg
+{
+    background-color: var(--color-6);
+}
+
+.site-font-colour
+{
+    color: var(--color-6);
+}
+.login-colour
+{
+    color: var(--color-1);
+}
+.login-colour-bg
+{
+    background: var(--color-1);
+}
+.account-colour
+{
+    color: var(--color-2);
+}
+.account-colour-bg
+{
+    background: var(--color-2);
+}
+.nutrition-colour
+{
+    color: var(--color-3);
+}
+.nutrition-colour-bg
+{
+    background: var(--color-3);
+}
+.workout-colour
+{
+    color: var(--color-4);
+}
+.workout-colour-bg
+{
+    background: var(--color-4);
+}
+.budget-colour
+{
+    color: var(--color-5);
+}
+.budget-colour-bg
+{
+    background: var(--color-5);
+}
