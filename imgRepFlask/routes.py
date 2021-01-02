@@ -3,7 +3,7 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request # import render_template function for rendering HTML pages individually, url 4 for finding files in the background
 from imgRepFlask import app, db, bcrypt, constants
 from imgRepFlask.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from imgRepFlask.models import User, Calorie                            # Using models in views, DB needs to exist first
+from imgRepFlask.models import User, Account, ContactInfo, Album, Picture                          # Using models in views, DB needs to exist first
 from flask_login import login_user, current_user, logout_user, login_required
 
 posts = [
@@ -41,8 +41,13 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(name=form.name.data, email=form.email.data, password=hashed_password)
+        contactInfo = ContactInfo(name=form.name.data)
+        account = Account(email=form.email.data, password=hashed_password)
+        user = User() #album is not required to make user
+        #user = User(name=form.name.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
+        db.session.add(contactInfo)
+        db.session.add(account)
         db.session.commit()
         flash('Welcome {0}, your account has been created!'.format(form.name.data), 'success')
         return redirect(url_for('login')) #redirect to function name of route
@@ -54,7 +59,7 @@ def login():
         return redirect(url_for('home_page'))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(email = form.email.data).first()                    # Check if email exists, grab user
+        user = Account.query.filter_by(email = form.email.data).first()                    # Check if email exists, grab user
         if user and bcrypt.check_password_hash(user.password, form.password.data):      # Compare User saved password with entered password
             login_user(user, remember=form.remember.data)
             next_page = request.args.get('next')                                        # Grab url parameter
@@ -68,8 +73,6 @@ def logout():
     logout_user()            
     return redirect(url_for('home_page'))
 
-
-
 def save_picture(form_picture): #Move this into seperate file, along with db query/submit/connection stuff
     random_hex = binascii.b2a_hex(os.urandom(4)).decode("utf-8")
     _, f_ext = os.path.splitext(form_picture.filename)
@@ -81,11 +84,11 @@ def save_picture(form_picture): #Move this into seperate file, along with db que
     return picture_fn
 
 @app.route('/account/updateInfo', methods=['GET', 'POST'])
-@login_required         
+@login_required
 def account_updateInfo():
     form = UpdateAccountForm()
     if form.validate_on_submit():
-        if form.picture.data:
+        if form.picture.data:youtube
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
         current_user.name = form.name.data
@@ -94,9 +97,11 @@ def account_updateInfo():
         flash('Account Details Updated', 'success')
         return redirect(url_for('account_home'))
     elif request.method == 'GET':
-        form.name.data = current_user.name
-        form.email.data = current_user.email
-    image_file= url_for('static', filename='profile_pics/' + current_user.image_file)          
+        account_data = Account.query.filter_by(id=current_user.id).first()
+        contactInfo_data = ContactInfo.query.filter_by(id=current_user.id).first()
+        form.name.data = contactInfo_data.name
+        form.email.data = account_data.email
+    image_file= url_for('static', filename='profile_pics/' + account_data.image_file)          
     return render_template('/account/updateInfo.html', title='Account', image_file=image_file, form=form)
 
 @app.route('/account/home', methods=['GET', 'POST'])
@@ -104,9 +109,9 @@ def account_updateInfo():
 def account_home():
     form = UpdateAccountForm()
     if request.method == 'GET':
-        form.name.data = current_user.name
-        form.email.data = current_user.email
-    image_file= url_for('static', filename='profile_pics/' + current_user.image_file)          
+        form.name.data = ContactInfo.name
+        form.email.data = Account.email
+    image_file= url_for('static', filename='profile_pics/' + Account.image_file)          
     return render_template('/account/home.html', title='Account', image_file=image_file, form=form)
 
     
