@@ -7,8 +7,8 @@ app = Flask(__name__)                                       # Declare app variab
 
 app.config['SECRET_KEY'] = '4v8r9asfe52987fd5'              # Should be random characters
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' # 3 slashes means relative path
-
-db = SQLAlchemy(app)                 # instances
+ 
+db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
