@@ -3,6 +3,10 @@
     font-family: 'Josefin Sans', sans-serif;
     text-transform: uppercase;
 }
+.header-space
+{
+    padding-left: 5em;
+}
 .content-font
 {
     font-family: 'DM Sans', sans-serif; 
