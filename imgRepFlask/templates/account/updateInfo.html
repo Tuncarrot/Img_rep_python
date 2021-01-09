@@ -1,19 +1,27 @@
 {% extends "layouts.html" %}
 {% block content %}
-<div class="card card-form-format-account">
+<div class="card card-form-format-account account-colour-bg">
     <div class="content-section">
-        <div class="media">
-            <img class="rounded-circle account-img" src="{{ image_file }}">
-            <div class="media-body">
-                <h2 class="account-heading">{{ current_user.name }}</h2>
-                <p class="text-secondary">{{ current_user.email }}</p>
-            </div>
-        </div>
         <form method="POST" action="" enctype="multipart/form-data">
-            {{ form.hidden_tag() }}
-            <fieldset="form-group">
-                <legend class="border-bottom mb-4"><i class="fas fa-user-circle site-font-colour"></i><h1 class="header-font site-font-colour">Account Information</h1></legend>
-                <div class="form-group">
+        {{ form.hidden_tag() }}
+        <fieldset="form-group">
+            <legend class="border-bottom mb-4">
+                <h1 class="header-font site-font-colour">
+                    <a href="{{ url_for('account_home') }}" class="icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </a>
+                    &nbsp;
+                    <i class="fas fa-image site-font-colour"></i>
+                    Update Information</h1>
+                </legend>
+                <div class="media">
+                    <img class="rounded-circle account-img" src="{{ image_file }}">
+                    <div class="media-body">
+                        <h2 class="account-heading">{{ current_user.name }}</h2>
+                        <p class="text-secondary">{{ current_user.email }}</p>
+                    </div>
+                </div>
+            <div class="form-group">
                     {{ form.name.label(class="form-control-label site-font-colour") }}
 
                     {% if form.name.errors %}
