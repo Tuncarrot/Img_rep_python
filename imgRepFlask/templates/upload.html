@@ -1,0 +1,69 @@
+{% extends "layouts.html" %}
+{% block content %}
+<!--
+    {% for post in posts %}
+        <h1>{{ post.title }}</h1>
+        <p>By {{ post.author }} on {{ post.date_created }}</p>
+        <p>{{ post.content }}</p>
+    {% endfor %}
+-->
+
+<div class="card card-form-format workout-colour-bg">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset="form-group">
+            <legend class="border-bottom mb-4">
+                <h1 class="header-font site-font-colour">
+                    <a href="{{ url_for('home_page') }}" class="icon">
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </a>
+                    &nbsp;
+                    <i class="fas fa-image site-font-colour"></i>
+                    Upload</h1>
+                </legend>        
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label content-font site-font-colour") }}
+
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg login-colour") }}
+                    {% endif %}
+
+                </div>
+                <div class="form-group date" data-provide="datepicker">
+                    {{ form.date.label(class="form-control-label content-font site-font-colour") }}
+
+                    {% if form.date.errors %}
+                        {{ form.date(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.date.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.date(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.image_file.label(class="site-font-colour") }}
+                    {{ form.image_file(class="form-control-file") }}
+                    {% if form.image_file.errors %}
+                        {% for error in form.image_file.errors %}
+                            <span class="text-danger">{{ error }}</span><br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
