@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, MultipleFileField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from imgRepFlask.models import User, Account, ContactInfo, Album, Picture
 
@@ -36,3 +36,9 @@ class UpdateAccountForm(FlaskForm):
             email = Account.query.filter_by(email=email.data).first()
             if email:
                 raise ValidationError('Email is already registered, please choose another email')
+
+class UploadPhotoForm(FlaskForm):
+    name = StringField('Title', validators=[DataRequired(), Length(min=2, max=30)])
+    date = StringField('Date', validators=[Length(min=8, max=10)])
+    image_file = MultipleFileField('Update Profile Picture', validators=[FileAllowed(['jpg','png'])])
+    submit = SubmitField('Upload')
