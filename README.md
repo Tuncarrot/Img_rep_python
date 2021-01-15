@@ -16,4 +16,12 @@ SET FLASK_DEBUG=1
 
 flask run
 
+# Create Database
+
+(be in project directory)
+
+from imgRepFlask import db
+db.create_all()
+
+- this will create the database
 

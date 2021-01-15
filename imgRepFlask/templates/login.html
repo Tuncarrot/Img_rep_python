@@ -4,9 +4,15 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset="form-group">
-                <div class="row">
-                    <legend class="border-bottom mb-4"><i class="fas fa-sign-in-alt site-font-colour"></i><h1 class="header-font site-font-colour">Login</h1></legend>
-                </div>
+                <legend class="border-bottom mb-4">
+                    <h1 class="header-font site-font-colour">
+                        <a href="{{ url_for('main.home_page') }}" class="icon">
+                            <i class="fas fa-arrow-circle-left"></i>
+                        </a>
+                        &nbsp;
+                        <i class="fas fa-sign-in-alt site-font-colour"></i>
+                        Login</h1>
+                    </legend>       
                 <div class="form-group">
                     {{ form.email.label(class="form-control-label content-font site-font-colour") }}
 
@@ -43,15 +49,15 @@
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
+                <small class="text-muted">
+                    <a class="ml-2" href="{{ url_for('users.reset_request') }}">Forgot Password</a>
+                </small>
             </div>
-            <small class="text-muted">
-                <a class="ml-2" href="#">Forgot Password</a>
-            </small>
         </form>
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
+            Need An Account? <a class="ml-2" href="{{ url_for('users.register') }}">Sign Up Now</a>
         </small>
     </div>
 {% endblock content %}

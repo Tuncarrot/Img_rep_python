@@ -1,0 +1,21 @@
+{% extends "layouts.html" %}
+{% block content %}
+<div class="card card-form-format login-colour-bg">
+    <legend class="border-bottom mb-4">
+        <h1 class="header-font site-font-colour">
+            <a href="{{ url_for('main.home_page') }}" class="icon">
+                <i class="fas fa-arrow-circle-left"></i>
+            </a>
+            &nbsp;
+            <i class="fas fa-times site-font-colour"></i>
+            Error 500 - Oops, something went wrong</h1>
+    </legend>
+    <div class="col">
+        <div class="row justify-content-center">
+            <h3 class="site-font-colour">That wasn't supposed to happen...</h3>
+        </div>
+        <div class="row justify-content-center">
+            <iframe src="https://giphy.com/embed/oyFyFiXz0hrnG" width="480" height="266" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
+    </div>                 
+{% endblock content %}
