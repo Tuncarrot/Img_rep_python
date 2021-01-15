@@ -1,0 +1,36 @@
+{% extends "layouts.html" %}
+{% block content %}
+    <div class="card card-form-format login-colour-bg">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset="form-group">
+                <legend class="border-bottom mb-4">
+                    <h1 class="header-font site-font-colour">
+                        <a href="{{ url_for('users.login') }}" class="icon">
+                            <i class="fas fa-arrow-circle-left"></i>
+                        </a>
+                        &nbsp;
+                        <i class="fas fa-key site-font-colour"></i>
+                        Reset Password</h1>
+                </legend>   
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label content-font site-font-colour") }}
+
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg account-colour") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
