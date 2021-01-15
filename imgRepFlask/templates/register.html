@@ -4,7 +4,15 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset="form-group">
-                <legend class="border-bottom mb-4"><i class="fas fa-sign-in-alt site-font-colour"></i><h1 class="header-font site-font-colour">Join Today</h1></legend>
+                <legend class="border-bottom mb-4">
+                    <h1 class="header-font site-font-colour">
+                        <a href="{{ url_for('main.home_page') }}" class="icon">
+                            <i class="fas fa-arrow-circle-left"></i>
+                        </a>
+                        &nbsp;
+                        <i class="fas fa-sign-in-alt site-font-colour"></i>
+                        Join Today</h1>
+                    </legend>        
                 <div class="form-group">
                     {{ form.name.label(class="form-control-label site-font-colour") }}
 
@@ -70,7 +78,7 @@
     </div>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Already have an account? <a class="ml-2" href="{{ url_for('login') }}"">Sign In</a>
+            Already have an account? <a class="ml-2" href="{{ url_for('users.login') }}"">Sign In</a>
         </small>
     </div>
 {% endblock content %}
