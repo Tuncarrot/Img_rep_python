@@ -1,19 +1,19 @@
-## Image Repository
+# Image Repository
 
 This application is an image repository where users can upload and manage images.
 
-# How do I work?
+## How do I work?
 
 I run using Python, Flask and SQLAlchemy. You can see me (mostly) working at http://192.53.122.149/ where I'm hosted with a Linux server using Nginx and Gunicorn. If you decide to run me locally, I should be bug-free.
 
-# What do I use?
+## What do I use?
 
 You will need at least...
--Python 3.5
--Create/use an email with an email application password (https://support.google.com/mail/answer/185833?hl=en).
--Access to a Database with a secret key and database URI
+- Python 3.5
+- Create/use an email with an email application password (https://support.google.com/mail/answer/185833?hl=en).
+- Access to a Database with a secret key and database URI
 
-# How can you run me in a Windows Environment?
+## How can you run me in a Windows Environment?
 
 I'm easy to set up in Windows, just follow along!
 
@@ -54,7 +54,7 @@ flask run
 
 You should have the project running at localhost now!
 
-# How can you run me in a Linux Environment?
+## How can you run me in a Linux Environment?
 
 Lets start with setting me up from scratch. Assuming you have at least python 3.5 installed. Since the project was intially created on a Windows Environment, there are some extra steps you need, so follow along carefully.
 
@@ -148,24 +148,4 @@ flask run -host=0.0.0.0
 ```
 
 You should be able to see the application in your browser at your IP address with port 5000!
-
-
-## Useful commands during development (for windows command line)
-
-(be in project directory)
-
-SET FLASK_APP=fitnessAppFlask.py
-
-SET FLASK_DEBUG=1
-
-flask run
-
-# Create Database
-
-(be in project directory)
-
-from imgRepFlask import db
-db.create_all()
-
-- this will create the database
 
