@@ -83,7 +83,7 @@ def account_home():
         form.name.data = user_contact.name
         form.email.data = user_account.email
     image_file= url_for('static', filename='profile_pics/' + user_account.image_file)          
-    return render_template('/account/home.html', title='Account', image_file=image_file, form=form)
+    return render_template('/account/home.html', title='Account', image_file=image_file, form=form, contact=user_contact)
 
 @users.route('/account/reset_password', methods=['GET', 'POST'])      
 def reset_request():
