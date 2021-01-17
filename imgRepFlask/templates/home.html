@@ -25,8 +25,8 @@
         Welcome, to start,<a href=" {{url_for('users.register') }}" class="keyword login-colour">Create An Account</a> and <a href=" {{url_for('users.login') }}" class="keyword login-colour">Sign In</a> here.<br>
         {% endif %}
         Feel free to manage your <a href=" {{url_for('users.account_home') }}" class="keyword account-colour">account</a> to change your information.<br>
-        You can browse your <a href="#" class="keyword nutrition-colour">photos</a> and share them.<br>
-        You can <a href="#" class="keyword workout-colour">upload</a> any photos and store them here as well.<br>
+        You can browse your <a href="{{url_for('images.browse_page') }}" class="keyword nutrition-colour">photos</a> here.<br>
+        You can <a href="{{url_for('images.upload_image') }}" class="keyword workout-colour">upload</a> any photos and store them here as well.<br>
         When you are familiar with the different features, dont be shy to<a href="#" onclick="switchLayout()" class="keyword budget-colour">return</a>.<br>
         </h2>
     </div>
