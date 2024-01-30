@@ -4,7 +4,7 @@ This application is an image repository where users can upload and manage images
 
 ## How do I work?
 
-I run using Python, Flask and SQLAlchemy. You can see me (mostly) working at http://192.53.122.149/ where I'm hosted with a Linux server using Nginx and Gunicorn. If you decide to run me locally, I should be bug-free.
+I run using Python, Flask and SQLAlchemy. You can see me (mostly) working at {Currently Down} where I'm hosted with a Linux server using Nginx and Gunicorn. If you decide to run me locally, I should be bug-free.
 
 ## What do I use?
 
