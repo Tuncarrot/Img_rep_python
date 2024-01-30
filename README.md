@@ -25,6 +25,11 @@ git clone https://github.com/Tuncarrot/Img_rep_python.git
 Install Pip on Windows
 https://stackoverflow.com/questions/4750806/how-can-i-install-pip-on-windows provides a good example
 
+When pip is installed, use the requirements file to download the required contents, make sure you are in the cloned directory
+```
+pip install -r requirements.txt
+```
+
 Next you will need to set some environment variables to make your code safe to look at. If you dont know how, the following provides a good example. 
 https://www.computerhope.com/issues/ch000549.htm
 
